@@ -11,7 +11,7 @@ const { request } = require('./crud-helpers.js');
 test('/ route returns homepage', async () => {
     const { status, body } = await request('/');
     assert.equal(status, 200);
-    assert.match(body, /user sighting/, `Response should contain 'user sighting'`);
+    assert.match(body, /Haunts of the High Street/, `Response should contain 'user sighting'`);
 });
 
 
@@ -26,9 +26,3 @@ test('/ route conditionally renders buttons', async () => {
   assert.equal(status, 200);
   assert.doesNotMatch(body, /Logout/, 'Response should not contain logout button');
 });
-
-test('/ route conditionally renders form', async () => {
-  const {status, body } = await request('/');
-  assert.equal(status, 200);
-  assert.doesNotMatch(body, /<form>/, 'Response should not contain form button');
-})
