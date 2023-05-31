@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "DB_FILE=db.sqlite nodemon /src/index.js",
+    "start": "node /src/index.js",
+    "seed": "DB_FILE=db.sqlite node /src/database/seed.js"
   },
   "repository": {
     "type": "git",
@@ -18,10 +21,18 @@
   },
   "homepage": "https://github.com/fac27/Haunts-of-the-high-street#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^8.4.0",
+    "body-parser": "^1.20.2",
     "chalk": "^5.2.0",
-    "express": "^4.18.2"
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.1.1",
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1"
   },
   "devDependencies": {
-    "eslint-config-kentcdodds": "^20.5.0"
+    "eslint-config-kentcdodds": "^20.5.0",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.8"
   }
 }
