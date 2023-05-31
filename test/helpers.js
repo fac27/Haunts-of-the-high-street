@@ -1,12 +1,12 @@
-const server = require("../src/server/server.js");
+const server = require("../src/server");
 const PORT = process.env.PORT || 8080;
 
-async function request(pathname, options = {}) {
+async function request(pathname) {
   const app = server.listen(PORT);
   //const { port } = app.address();
   const url = new URL(pathname, `http://localhost:${PORT}`);
-  options.headers = { ...options.headers, connection: "close" };
-  const response = await fetch(url, options);
+  
+  const response = await fetch(url);
   app.close();
   const body = await response.text();
   const headers = Object.fromEntries(response.headers);
