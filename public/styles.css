@@ -6,6 +6,49 @@
   font-display: swap;
   font-family: 'Creepster', cursive;
 }
-.red{
-    background-color: red;
+.red {
+  background-color: red;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.center {
+  align-items: center;
+}
+
+.end {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-left: auto;
+}
+.purple {
+  background-color: blueviolet;
+}
+
+.padding{
+    padding: 1rem;
+}
+.column{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.form-label {
+    display: inline-block;
+    font-weight: 700;
+    color: gray;
+}
+
+.form-input {
+    display: block;
+    width: 100%;
+    border: 1px solid darkgray;
+    border-radius: 0.25;
+    padding: .75rem;
+    color: inherit;
+    font-family: inherit;
 }
