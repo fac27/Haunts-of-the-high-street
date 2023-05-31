@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "DB_FILE=db.sqlite nodemon /src/index.js",
-    "start": "node /src/index.js",
-    "seed": "DB_FILE=db.sqlite node /src/database/seed.js"
+    "dev": "DB_FILE=db.sqlite nodemon src/index.js",
+    "start": "node src/index.js",
+    "seed": "DB_FILE=db.sqlite node src/database/seed.js"
   },
   "repository": {
     "type": "git",
