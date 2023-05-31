@@ -4,7 +4,7 @@ module.exports = {
         "commonjs": true,
         "es2021": true
     },
-    "extends": ["eslint:recommended","kentcdodds"],
+    "extends":[ "eslint:recommended", "kentcdodds"],
     "overrides": [
     ],
     "parserOptions": {

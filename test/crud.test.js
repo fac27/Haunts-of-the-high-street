@@ -1,17 +1,34 @@
-const test = require('node:test');
 const assert = require('node:assert');
+const test = require('node:test');
+
 
 const { request } = require('./crud-helpers.js');
 
                             //// READ ////
 
-const home = ``;
 
-test(`/ route returns ${home}`, async () => {
-    const { status, body } = await request('/', {
-        method: 'GET',
-        headers: { 'content-type': 'application/x-www-form-urlencoded' },
-      });
+
+test('/ route returns homepage', async () => {
+    const { status, body } = await request('/');
     assert.equal(status, 200);
-    assert.match(body, home, `Response should contain ${home}`);
+    assert.match(body, /user sighting/, `Response should contain 'user sighting'`);
 });
+
+
+test('/ route conditionally renders form', async () => {
+  const {status, body } = await request('/');
+  assert.equal(status, 200);
+  assert.doesNotMatch(body, /<form>/, 'Response should not contain form button');
+});
+
+test('/ route conditionally renders buttons', async () => {
+  const {status, body } = await request('/');
+  assert.equal(status, 200);
+  assert.doesNotMatch(body, /Logout/, 'Response should not contain logout button');
+});
+
+test('/ route conditionally renders form', async () => {
+  const {status, body } = await request('/');
+  assert.equal(status, 200);
+  assert.doesNotMatch(body, /<form>/, 'Response should not contain form button');
+})
