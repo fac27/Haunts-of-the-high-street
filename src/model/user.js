@@ -6,7 +6,7 @@ const insert_user = db.prepare(/*sql*/ `
   RETURNING id
 `);
 
-function createUser(email, hash) {
+function createUser(email, passwordHash) {
   return insert_user.get({ email, passwordHash });
 }
 
@@ -18,4 +18,12 @@ function getUserByEmail(email) {
   return select_user_by_email.get(email);
 }
 
-module.exports = { createUser, getUserByEmail };
+const select_user_by_id = db.prepare(/*sql*/ `
+  SELECT id, email, password_hash, created_at FROM users WHERE id = ?
+`);
+
+function getUserById(id) {
+  return select_user_by_id.get(id);
+}
+
+module.exports = { createUser, getUserByEmail, getUserById };
