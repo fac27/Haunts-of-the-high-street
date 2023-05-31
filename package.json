@@ -1,0 +1,27 @@
+{
+  "name": "haunts-of-the-high-street",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac27/Haunts-of-the-high-street.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac27/Haunts-of-the-high-street/issues"
+  },
+  "homepage": "https://github.com/fac27/Haunts-of-the-high-street#readme",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "eslint-config-kentcdodds": "^20.5.0"
+  }
+}
