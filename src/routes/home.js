@@ -6,19 +6,19 @@ const get = (req, res) => {
   const title = 'Haunts of the High Street';
   const listAllSightings = getAllSightings();
   const content = /*html*/ `
-    <header>
-    <nav><a href="/sign-up">Sign up</a> or <a href="/log-in">log in</a></nav>
+    <header class="flex purple padding">
+    <h1 class="creepy">${title}</h1>
+    <nav class="end center"><a href="/sign-up">Sign up</a> or <a href="/log-in">log in</a></nav>
     </header>
-    <div class=''>
-      <h1>${title}</h1>
-    </div>
-    <form method="POST">
+    <div>
+    <form class = "column" method="POST">
       <label>Add image url</label>
       <input type="url" name="imageUrl">
       <label>Add sighting details</label>
       <input type="text" name="details">
       <button type="submit">Submit</button>
     </form>
+    </div>
     <div>
       ${listAllSightings.map((sighting) => `<p>${sighting.image_url} ${sighting.details}</p>`).join(' ')}
     </div>
