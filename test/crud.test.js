@@ -1,7 +1,7 @@
 const test = require('node:test');
 const assert = require('node:assert');
 
-const { request } = require('./helpers.js');
+const { request } = require('./crud-helpers.js');
 
                             //// READ ////
 
@@ -15,17 +15,3 @@ test(`/ route returns ${home}`, async () => {
     assert.equal(status, 200);
     assert.match(body, home, `Response should contain ${home}`);
 });
-
-                            //// CREATE ////
-
-// Posting a sighting adds it to the home page
-
-
-
-                            //// UPDATE ////
-
-// Editing a post changes its contents on the homepage
-
-                            //// DESTROY ////
-
-// Deleting a post removes it from the homepage

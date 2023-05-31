@@ -1,4 +1,4 @@
-const server = require("../src/server/server.js");
+const server = require("../src/server");
 const PORT = process.env.PORT || 8080;
 
 async function request(pathname, options = {}) {
