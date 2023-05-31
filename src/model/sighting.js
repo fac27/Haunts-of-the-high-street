@@ -2,10 +2,10 @@ const db = require("../database/db.js");
 
 const select_all_sightings = db.prepare(/*sql*/ `
     SELECT
-        u.email AS email,
+        email,
         details,
         image_url,
-        created_at
+        sightings.created_at AS created_at
     FROM sightings
     JOIN users
     ON sightings.user_id = users.id
@@ -17,13 +17,13 @@ function getAllSightings() {
 }
 
 const insert_sighting = db.prepare(/*sql*/ `
-  INSERT INTO sightings ({user_id, details, image_url})
-  VALUES ($userId, $details, $imageUrl)
+  INSERT INTO sightings (user_id, details, image_url)
+  VALUES (?, ?, ?)
   RETURNING id, created_at
 `);
 
-function createSighting({userId, details, imageUrl}) {
-  return inse.get({ userId, details, imageUrl });
+function createSighting(userId, details, imageUrl) {
+  return insert_sighting.get( userId, details, imageUrl );
 }
 
-module.exports = {getAllSightings, createSighting};
+module.exports = { getAllSightings, createSighting };
