@@ -10,9 +10,6 @@ const get = (req, res) => {
     <h1 class="creepy">${title}</h1>
     <nav class="end center"><a href="/sign-up">Sign up</a> or <a href="/log-in">log in</a></nav>
     </header>
-    <div class=''>
-      <h1>${title}</h1>
-    </div>
     <form method="POST">
       <label>Add image url</label>
       <input type="url" name="imageUrl">
