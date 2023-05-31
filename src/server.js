@@ -2,9 +2,12 @@ const express = require('express')
 const home = require('./routes/home.js')
 const login = require('./routes/log-in.js')
 const signup = require('./routes/sign-up.js')
+const staticHandler = express.static('public')
 
 const body = express.urlencoded({ extended: true })
 const server = express()
+
+server.use(staticHandler)
 
 server.use((req, res, next) => {
   const time = new Date().toLocaleTimeString('en-GB')
