@@ -6,8 +6,8 @@ const get = (req, res) => {
     <header>
     <nav><a href="/sign-up">Sign up</a> or <a href="/log-in">log in</a></nav>
     </header>
-    <div class=''>
-      <h1>${title}</h1>
+    <div class="red">
+      <h1 class="creepy">${title}</h1>
     </div>
     <div>
     <p>user sighting</p>
