@@ -3,6 +3,7 @@ const home = require('./routes/home.js')
 const login = require('./routes/log-in.js')
 const signup = require('./routes/sign-up.js')
 
+const body = express.urlencoded({ extended: true })
 const server = express()
 
 server.use((req, res, next) => {
@@ -12,7 +13,9 @@ server.use((req, res, next) => {
 })
 
 server.get('/', home.get)
-server.get('/log-in', login.get)
 server.get('/sign-up', signup.get)
+server.post('/sign-up', body, signup.post)
+server.get('/log-in', login.get)
+server.post("/", body, home.post);
 
 module.exports = server
