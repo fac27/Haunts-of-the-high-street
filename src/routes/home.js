@@ -10,13 +10,15 @@ const get = (req, res) => {
     <h1 class="creepy">${title}</h1>
     <nav class="end center"><a href="/sign-up">Sign up</a> or <a href="/log-in">log in</a></nav>
     </header>
-    <form method="POST">
+    <div>
+    <form class = "column" method="POST">
       <label>Add image url</label>
       <input type="url" name="imageUrl">
       <label>Add sighting details</label>
       <input type="text" name="details">
       <button type="submit">Submit</button>
     </form>
+    </div>
     <div>
       ${listAllSightings.map((sighting) => `<p>${sighting.image_url} ${sighting.details}</p>`).join(' ')}
     </div>
