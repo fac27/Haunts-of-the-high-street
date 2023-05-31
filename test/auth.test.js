@@ -1,7 +1,7 @@
 const test = require("node:test");
 const assert = require("node:assert");
 const { createUser } = require("../src/model/user");
-const { createSession } = require("../src/model/session");
+const { createSession, getSession } = require("../src/model/session");
 const { reset } = require("./auth-helpers");
 
 
