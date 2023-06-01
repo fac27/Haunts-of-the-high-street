@@ -35,7 +35,10 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
+}
+.column > * {
+  margin-top: 0.25rem;
 }
 .form-label {
     display: inline-block;
@@ -52,3 +55,4 @@
     color: inherit;
     font-family: inherit;
 }
+
