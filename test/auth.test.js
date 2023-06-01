@@ -2,7 +2,7 @@ const test = require("node:test");
 const assert = require("node:assert");
 const { createUser } = require("../src/model/user");
 const { createSession, getSession } = require("../src/model/session");
-const { reset } = require("./auth-helpers");
+const { reset } = require("./auth-helpers.js");
 
 
 
@@ -10,6 +10,7 @@ test("createSession can insert a new session", async () => {
   reset();
 
   const user = createUser("x@test.com", "jnewcinecu283");
+  //check if it makes a user
   const sid = createSession(user.id);
   assert.ok(
     sid,

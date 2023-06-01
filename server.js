@@ -19,6 +19,9 @@ server.use((req, res, next) => {
   console.log(`${time} ${req.method} ${req.url}`)
   next()
 })
+//server.use(cookies);
+//server.use(sessions);
+
 
 server.get('/', home.get);
 server.get('/sign-up', signup.get);
@@ -26,5 +29,21 @@ server.post('/sign-up', body, signup.post);
 server.get('/log-in', login.get);
 server.post('/log-in', body, login.post);
 server.post("/", body, home.post);
+
+/* function sessions(req, res, next) {
+  const sid = req.signedCookies.sid;
+  const session = getSession(sid);
+  if (session) {
+    const expiry = new Date(session.expires_at);
+    const today = new Date();
+    if (expiry < today) {
+      removeSession(sid);
+      res.clearCookie("sid");
+    } else {
+      req.session = session;
+    }
+  }
+  next();
+} */
 
 module.exports = server

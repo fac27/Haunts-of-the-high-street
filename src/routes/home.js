@@ -1,5 +1,6 @@
-const { layout } = require('../templates/layout')
-const { createSighting, getAllSightings } = require('../model/sighting.js')
+const { layout } = require('../templates/layout');
+const { createSighting, getAllSightings } = require('../model/sighting.js');
+
 
 const get = (req, res) => {
   const title = 'Haunts of the High Street'
