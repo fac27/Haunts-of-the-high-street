@@ -23,7 +23,6 @@ const get = (req, res) => {
         </div>
       `
     const body = layout({ title, content })
-    const body = layout({ title, content })
     res.send(body)
   }
 
