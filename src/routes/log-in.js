@@ -19,7 +19,7 @@ const get = (req, res) => {
             <input class = "form-input" type="password" id="password" name="password" required>
           </div>
           ${error ? `<p>${error}</p>` : `<p></p>`}
-          <button class="mono-font white-font purple">Log in</button>
+          <button class="mono-font white-font purple rounded">Log in</button>
         </form>
       </div>
     `;

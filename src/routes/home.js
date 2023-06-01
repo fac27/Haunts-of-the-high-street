@@ -20,7 +20,7 @@ const get = (req, res) => {
       <input class = "form-input" type="url" name="image_url">
       <label class="form-label" >Add sighting details</label>
       <input class = "form-input" type="text" name="details">
-      <button class ="mono-font" type="submit">Submit</button>
+      <button class ="mono-font rounded" type="submit">Submit</button>
     </form>
     </div>
     <div class="column center mono-font">
