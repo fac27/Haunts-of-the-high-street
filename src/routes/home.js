@@ -11,11 +11,11 @@ const get = (req, res) => {
     <nav class="end center"><a href="/sign-up">Sign up</a> or <a href="/log-in">log in</a></nav>
     </header>
     <div>
-    <form class = "column" method="POST">
-      <label>Add image url</label>
-      <input type="url" name="imageUrl">
-      <label>Add sighting details</label>
+    <form class = "column" method="POST" action="/">
+      <label for="details">Add sighting details</label>
       <input type="text" name="details">
+      <label for="image_url">Add image url</label>
+      <input type="url" name="image_url">
       <button type="submit">Submit</button>
     </form>
     </div>
@@ -28,15 +28,13 @@ const get = (req, res) => {
 }
 
 const post = (req, res) => {
-  const { imageUrl, details } = req.body;
-    if (!imageUrl || !details) {
+  const { image_url, details } = req.body;
+    if (!image_url || !details) {
       res.status(400).send("Bad input");
     } else {
       ////////////////// temporary user_id ////////////////////////////
-      const userId = 1;
-      console.log(userId, imageUrl, details);
-      console.log(process.env.DB_FILE)
-      createSighting(userId, imageUrl, details);
+      const sighting = {user_id: 1, details, image_url}
+      createSighting(sighting);
       res.redirect('/');
 }
 }
