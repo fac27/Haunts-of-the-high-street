@@ -1,4 +1,4 @@
-const { Layout } = require('../templates/layout');
+const { layout } = require('../templates/layout');
 const { createSighting, getAllSightings } = require('../model/sighting.js');
 
 
@@ -23,7 +23,7 @@ const get = (req, res) => {
       ${listAllSightings.map((sighting) => `<p>${sighting.image_url} ${sighting.details}</p>`).join(' ')}
     </div>
   `
-  const body = Layout({ title, content })
+  const body = layout({ title, content })
   res.send(body)
 }
 
