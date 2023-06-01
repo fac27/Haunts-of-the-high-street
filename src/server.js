@@ -16,19 +16,12 @@ server.use((req, res, next) => {
   next()
 })
 
-<<<<<<< HEAD
 server.use(sessions)
-server.get('/', home.get)
-server.get('/sign-up', signup.get)
-server.post('/sign-up', body, signup.post)
-server.get('/log-in', login.get)
-=======
 server.get('/', home.get);
 server.get('/sign-up', signup.get);
 server.post('/sign-up', body, signup.post);
 server.get('/log-in', login.get);
 server.post('/log-in', body, login.post);
->>>>>>> main
 server.post("/", body, home.post);
 
 function sessions(req, res, next) {
