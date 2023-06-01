@@ -3,24 +3,26 @@ const { createSighting, getAllSightings } = require('../model/sighting.js');
 
 
 const get = (req, res) => {
-  const title = 'Haunts of the High Street';
-  const listAllSightings = getAllSightings();
+  const title = 'Haunts of the High Street'
+  const listAllSightings = getAllSightings()
   const content = /*html*/ `
     <header class="flex purple padding">
     <h1 class="creepy">${title}</h1>
-    <nav class="end center"><a href="/sign-up">Sign up</a> or <a href="/log-in">log in</a></nav>
+    <nav class="end center mono-font white-font"><a class="white-font" href="/sign-up">Sign up</a> or <a class="white-font" href="/log-in">log in</a></nav>
     </header>
-    <div>
-    <form class = "column" method="POST" action="/">
-      <label for="details">Add sighting details</label>
-      <input type="text" name="details">
-      <label for="image_url">Add image url</label>
-      <input type="url" name="image_url">
-      <button type="submit">Submit</button>
+    <div class="column center mono-font">
+    <form class = "column center" method="POST" action="/">
+      <label class="form-label">Add image url</label>
+      <input class = "form-input" type="url" name="imageUrl">
+      <label class="form-label" >Add sighting details</label>
+      <input class = "form-input" type="text" name="details">
+      <button class ="mono-font" type="submit">Submit</button>
     </form>
     </div>
-    <div>
-      ${listAllSightings.map((sighting) => `<p>${sighting.image_url} ${sighting.details}</p>`).join(' ')}
+    <div class="column center mono-font">
+      ${listAllSightings
+        .map((sighting) => `<p class="align-left">${sighting.image_url} <br> ${sighting.details}</p>`)
+        .join(' ')}
     </div>
   `
   const body = layout({ title, content })
@@ -39,11 +41,4 @@ const post = (req, res) => {
 }
 }
 
-
-
-
 module.exports = { get, post }
-
-
-
-
