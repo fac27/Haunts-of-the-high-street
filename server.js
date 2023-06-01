@@ -1,7 +1,7 @@
 const express = require('express')
-const home = require('./routes/home.js')
-const login = require('./routes/log-in.js')
-const signup = require('./routes/sign-up.js')
+const home = require('./src/routes/home.js')
+const login = require('./src/routes/log-in.js')
+const signup = require('./src/routes/sign-up.js')
 const staticHandler = express.static('public')
 
 const body = express.urlencoded({ extended: true })
