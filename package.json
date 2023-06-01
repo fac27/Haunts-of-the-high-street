@@ -7,9 +7,9 @@
     "test": "node --test",
     "test:auth": "node test/auth.test.js",
     "test:crud": "node test/crud.test.js",
-    "dev": "DB_FILE=db.sqlite nodemon src/index.js",
+    "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "seed": "DB_FILE=db.sqlite node src/database/seed.js"
+    "seed": "node src/database/seed.js"
   },
   "repository": {
     "type": "git",

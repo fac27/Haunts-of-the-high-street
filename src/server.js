@@ -2,9 +2,13 @@ const express = require('express')
 const home = require('./routes/home.js')
 const login = require('./routes/log-in.js')
 const signup = require('./routes/sign-up.js')
+const cookieParser = require("cookie-parser");
 const staticHandler = express.static('public')
+require('dotenv').config();
 
 const body = express.urlencoded({ extended: true })
+const cookies = cookieParser(process.env.COOKIE_SECRET);
+
 const server = express()
 
 server.use(staticHandler)
