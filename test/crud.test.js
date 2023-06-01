@@ -18,7 +18,7 @@ test('/ route returns homepage', async () => {
 test('/ route conditionally renders form', async () => {
   const {status, body } = await request('/');
   assert.equal(status, 200);
-  assert.doesNotMatch(body, /<form>/, 'Response should not contain form button');
+  assert.doesNotMatch(body, /<form>/, 'Response should not contain form element');
 });
 
 test('/ route conditionally renders buttons', async () => {
