@@ -34,6 +34,8 @@ const post = (req, res) => {
     } else {
       ////////////////// temporary user_id ////////////////////////////
       const userId = 1;
+      console.log(userId, imageUrl, details);
+      console.log(process.env.DB_FILE)
       createSighting(userId, imageUrl, details);
       res.redirect('/');
 }
