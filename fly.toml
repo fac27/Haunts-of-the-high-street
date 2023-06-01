@@ -1,0 +1,7 @@
+# fly.toml app configuration file generated for haunts-of-the-high-street on 2023-06-01T11:22:45+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "haunts-of-the-high-street"
+primary_region = "lhr"
