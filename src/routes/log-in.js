@@ -5,7 +5,7 @@ const get = (req, res) => {
   const content = /*html*/ `
       <div class="column">
         <h1 class="creepy">${title}</h1>
-        <form method="POST" class="">
+        <form method="POST" action="/log-in" class="">
           <div class="" >
             <label class="form-label" for="email">email</label>
             <input class = "form-input" type="email" id="email" name="email" required>
@@ -22,5 +22,14 @@ const get = (req, res) => {
   res.send(body)
 }
 
+const post = (req, res) => {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    res.status(400).send("Bad input");
+  } else {
+    res.redirect('/')
+}
+}
 
-module.exports = { get }
+
+module.exports = { get, post }
