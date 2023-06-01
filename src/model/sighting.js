@@ -18,12 +18,12 @@ function getAllSightings() {
 
 const insert_sighting = db.prepare(/*sql*/ `
   INSERT INTO sightings (user_id, details, image_url)
-  VALUES (?, ?, ?)
+  VALUES ($user_id, $details, $image_url)
   RETURNING id, created_at
 `);
 
-function createSighting(userId, details, imageUrl) {
-  return insert_sighting.get( userId, details, imageUrl );
+function createSighting(sighting) {
+  return insert_sighting.get(sighting);
 }
 
 module.exports = { getAllSightings, createSighting };

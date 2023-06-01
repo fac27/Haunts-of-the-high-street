@@ -13,7 +13,7 @@ const get = (req, res) => {
     <div class="column center mono-font">
     <form class = "column center" method="POST">
       <label class="form-label">Add image url</label>
-      <input class = "form-input" type="url" name="imageUrl">
+      <input class = "form-input" type="url" name="image_url">
       <label class="form-label" >Add sighting details</label>
       <input class = "form-input" type="text" name="details">
       <button class ="mono-font" type="submit">Submit</button>
@@ -30,15 +30,14 @@ const get = (req, res) => {
 }
 
 const post = (req, res) => {
-  const { imageUrl, details } = req.body;
-    if (!imageUrl || !details) {
+  console.log(req.body);
+  const { image_url, details } = req.body;
+    if (!image_url || !details) {
       res.status(400).send("Bad input");
     } else {
       ////////////////// temporary user_id ////////////////////////////
-      const userId = 1;
-      console.log(userId, imageUrl, details);
-      console.log(process.env.DB_FILE)
-      createSighting(userId, imageUrl, details);
+      const sighting = {user_id: 1, details, image_url}
+      createSighting(sighting);
       res.redirect('/');
 }
 }
