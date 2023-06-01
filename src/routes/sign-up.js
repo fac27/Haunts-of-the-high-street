@@ -40,7 +40,8 @@ const get = (req, res) => {
       return;
       }
       bcrypt.hash(password, 12).then ((hash) => {
-        const user = createUser(email, hash);
+        const userObject = {email, passwordHash: hash};
+        const user = createUser(userObject);
         const sessionId = createSession(user.id);
 
         res.cookie("sid", sessionId, {

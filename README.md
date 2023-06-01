@@ -21,7 +21,7 @@ Our geneeral approach to this project was to move slow to move fast. We delayed 
 🏃‍♂️ sprinting 
 
 
-## Instillation
+## Installation
 
 Clone the Repo 
 ```
@@ -55,7 +55,7 @@ We had lengthy discussions on MVP and making sure we followed an iterative proce
 We approached CSS for reusablity. After a lengthy discussion re. BEM with our role partners the UX lead decided this was the way forward. 
 
 ## database design
-![Haunts of the High Street database diagram](https://github.com/fac27/Haunts-of-the-high-street/assets/32879360/b4dd1718-601f-48f0-aac2-93138bd3e5d9)
+![Haunts of the High Street database diagram](https://github.com/fac27/Haunts-of-the-high-street/assets/32879360/9594092f-b20e-48fd-943f-d5c4a5f1e9f7)
 
 
 ## Testing

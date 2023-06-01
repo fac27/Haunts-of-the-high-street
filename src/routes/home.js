@@ -25,7 +25,16 @@ const get = (req, res) => {
     </div>
     <div class="column center mono-font">
       ${listAllSightings
-        .map((sighting) => `<p class="align-left">${sighting.image_url} <br> ${sighting.details}</p>`)
+        .map((sighting) => /*html*/`
+        <div>
+        <form method="POST" action="/delete">
+          <input type="hidden" name="sighting_id" value="${sighting.id}">
+          <button type="submit">X</button>
+        </form>
+        <image src="${sighting.image_url}">
+        <p> ${sighting.details}</p>
+        </div>
+        `)
         .join(' ')}
     </div>
   `

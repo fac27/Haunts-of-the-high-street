@@ -6,8 +6,8 @@ const insert_user = db.prepare(/*sql*/ `
   RETURNING id
 `);
 
-function createUser(email, passwordHash) {
-  return insert_user.get({ email, passwordHash });
+function createUser(user) {
+  return insert_user.get(user);
 }
 
 const select_user_by_email = db.prepare(/*sql*/ `
