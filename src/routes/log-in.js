@@ -14,7 +14,7 @@ const get = (req, res) => {
             <label class="form-label" for="password">password</label>
             <input class = "form-input" type="password" id="password" name="password" required>
           </div>
-          <button class="mono-font purple">Log in</button>
+          <button class="mono-font white-font purple">Log in</button>
         </form>
       </div>
     `

@@ -7,7 +7,7 @@ const get = (req, res) => {
   const content = /*html*/ `
     <header class="flex purple padding">
     <h1 class="creepy">${title}</h1>
-    <nav class="end center mono-font"><a href="/sign-up">Sign up</a> or <a href="/log-in">log in</a></nav>
+    <nav class="end center mono-font white-font"><a class="white-font" href="/sign-up">Sign up</a> or <a class="white-font" href="/log-in">log in</a></nav>
     </header>
     <div class="column center mono-font">
     <form class = "column center" method="POST">
