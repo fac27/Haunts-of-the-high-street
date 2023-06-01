@@ -9,14 +9,14 @@ const body = express.urlencoded({ extended: true })
 const server = express()
 
 server.use(staticHandler)
+server.use(sessions)
 
 server.use((req, res, next) => {
-  const time = new Date().toLocaleTimeString('en-GB')
-  console.log(`${time} ${req.method} ${req.url}`)
-  next()
-})
+  const time = new Date().toLocaleTimeString("en-GB");
+  console.log(`${time} ${req.method} ${req.url}`);
+  next();
+});
 
-server.use(sessions)
 server.get('/', home.get);
 server.get('/sign-up', signup.get);
 server.post('/sign-up', body, signup.post);
