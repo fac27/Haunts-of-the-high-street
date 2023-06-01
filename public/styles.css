@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Inconsolata:wght@200;300;400&display=swap');
 .creepy {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   font-family: 'Creepster', cursive;
 }
-.red {
-  background-color: red;
+.mono-font {
+  font-family: 'Inconsolata', monospace;
 }
-
+.white-font{
+  color: antiquewhite;
+}
+.purple {
+  background-color: blueviolet;
+}
 .flex {
   display: flex;
   justify-content: space-between;
@@ -17,38 +22,41 @@
 .center {
   align-items: center;
 }
-
 .end {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-left: auto;
 }
-.purple {
-  background-color: blueviolet;
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.column > * {
+  margin-top: 0.25rem;
+}
+.align-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.padding {
+  padding: 1rem;
 }
 
-.padding{
-    padding: 1rem;
-}
-.column{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 .form-label {
-    display: inline-block;
-    font-weight: 700;
-    color: gray;
+  display: inline-block;
+  font-weight: 700;
+  color: gray;
 }
 
 .form-input {
-    display: block;
-    width: 100%;
-    border: 1px solid darkgray;
-    border-radius: 0.25;
-    padding: .75rem;
-    color: inherit;
-    font-family: inherit;
+  display: block;
+  width: 100%;
+  border: 1px solid darkgray;
+  border-radius: 0.25;
+  padding: 0.75rem;
+  color: inherit;
+  font-family: inherit;
 }
