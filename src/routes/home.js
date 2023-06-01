@@ -28,7 +28,7 @@ const get = (req, res) => {
         .map((sighting) => /*html*/`
         <div>
         <form method="POST" action="/delete">
-          <input type="hidden" name="sighting" value="${sighting.id}">
+          <input type="hidden" name="sighting_id" value="${sighting.id}">
           <button type="submit">X</button>
         </form>
         <image src="${sighting.image_url}">

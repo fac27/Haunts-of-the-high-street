@@ -32,7 +32,8 @@ const get = (req, res) => {
       res.status(400).send("Bad input");
     } else {
       bcrypt.hash(password, 12).then ((hash) => {
-        const user = createUser(email, hash);
+        const user = {email, passwordHash: hash};
+        createUser(user);
         const sessionId = createSession(user.id);
 
         res.cookie("sid", sessionId, {
