@@ -1,7 +1,18 @@
-# fly.toml app configuration file generated for haunts-of-the-high-street on 2023-06-01T11:22:45+01:00
+# fly.toml app configuration file generated for haunts-2 on 2023-06-01T12:55:39+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "haunts-of-the-high-street"
+app = "haunts-2"
 primary_region = "lhr"
+
+[[mounts]]
+  source = "data"
+  destination = "/data"
+
+[http_service]
+  internal_port = 3333
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
