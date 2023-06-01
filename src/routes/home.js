@@ -1,5 +1,6 @@
 const { layout } = require('../templates/layout');
 const { createSighting, getAllSightings } = require('../model/sighting.js');
+const { sanitise } = require('../model/sanitise')
 
 
 const get = (req, res) => {
@@ -32,8 +33,8 @@ const get = (req, res) => {
           <input type="hidden" name="sighting_id" value="${sighting.id}">
           <button class="rounded" type="submit">X</button>
         </form>
-        <img src="${sighting.image_url}">
-        <p> ${sighting.details}</p>
+        <img src="${sanitise(sighting.image_url)}">
+        <p> ${sanitise(sighting.details)}</p>
         </div>
         </div>
         `)
