@@ -5,7 +5,7 @@ const get = (req, res) => {
     const content = /*html*/ `
         <div class="column">
           <h1 class="creepy">${title}</h1>
-          <form method="POST" class="column center mono-font" action="/">
+          <form method="POST" class="column center mono-font" action="/sign-up">
             <div class="">
               <label class="form-label" for="email">email</label>
               <input class = "form-input" type="email" id="email" name="email" required>

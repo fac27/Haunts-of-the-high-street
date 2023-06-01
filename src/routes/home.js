@@ -11,9 +11,9 @@ const get = (req, res) => {
     <nav class="end center mono-font white-font"><a class="white-font" href="/sign-up">Sign up</a> or <a class="white-font" href="/log-in">log in</a></nav>
     </header>
     <div class="column center mono-font">
-    <form class = "column center" method="POST" action="/">
+    <form class = "column center" method="POST">
       <label class="form-label">Add image url</label>
-      <input class = "form-input" type="url" name="imageUrl">
+      <input class = "form-input" type="url" name="image_url">
       <label class="form-label" >Add sighting details</label>
       <input class = "form-input" type="text" name="details">
       <button class ="mono-font" type="submit">Submit</button>
@@ -30,6 +30,7 @@ const get = (req, res) => {
 }
 
 const post = (req, res) => {
+  console.log(req.body);
   const { image_url, details } = req.body;
     if (!image_url || !details) {
       res.status(400).send("Bad input");
