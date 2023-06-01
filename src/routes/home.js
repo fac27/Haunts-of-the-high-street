@@ -48,10 +48,14 @@ const post = (req, res) => {
     if (!image_url || !details) {
       res.status(400).send("Bad input");
     } else {
-      ////////////////// temporary user_id ////////////////////////////
-      const sighting = {user_id: 1, details, image_url}
-      createSighting(sighting);
-      res.redirect('/');
+      const session = req.session;
+
+      if (session) {
+        const userId = session.user_id;
+        const sighting = {user_id: userId, details, image_url}
+        createSighting(sighting);
+        res.redirect('/');
+      }
 }
 }
 
