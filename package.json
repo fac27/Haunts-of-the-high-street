@@ -7,8 +7,8 @@
     "test": "node --test",
     "test:auth": "node test/auth.test.js",
     "test:crud": "node test/crud.test.js",
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
     "seed": "node src/database/seed.js"
   },
   "repository": {
