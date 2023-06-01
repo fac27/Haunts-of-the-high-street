@@ -31,7 +31,7 @@ const get = (req, res) => {
           <input type="hidden" name="sighting_id" value="${sighting.id}">
           <button type="submit">X</button>
         </form>
-        <image src="${sighting.image_url}">
+        <img src="${sighting.image_url}">
         <p> ${sighting.details}</p>
         </div>
         `)
