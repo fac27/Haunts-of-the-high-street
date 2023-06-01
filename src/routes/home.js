@@ -29,15 +29,17 @@ const get = (req, res) => {
 }
 
 const post = (req, res) => {
-  const { imageUrl, details } = req.body
-  if (!imageUrl || !details) {
-    res.status(400).send('Bad input')
-  } else {
-    ////////////////// temporary user_id ////////////////////////////
-    const userId = 1
-    createSighting(userId, imageUrl, details)
-    res.redirect('/')
-  }
+  const { imageUrl, details } = req.body;
+    if (!imageUrl || !details) {
+      res.status(400).send("Bad input");
+    } else {
+      ////////////////// temporary user_id ////////////////////////////
+      const userId = 1;
+      console.log(userId, imageUrl, details);
+      console.log(process.env.DB_FILE)
+      createSighting(userId, imageUrl, details);
+      res.redirect('/');
+}
 }
 
 module.exports = { get, post }

@@ -22,5 +22,14 @@ const get = (req, res) => {
   res.send(body)
 }
 
+const post = (req, res) => {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    res.status(400).send("Bad input");
+  } else {
+    res.redirect('/')
+}
+}
 
-module.exports = { get }
+
+module.exports = { get, post }
