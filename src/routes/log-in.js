@@ -1,7 +1,11 @@
-const { layout } = require('../templates/layout')
+const bcrypt = require("bcryptjs");
+const { getUserByEmail } = require('../model/user');
+const { layout } = require('../templates/layout');
+const {createSession} = require('../model/session')
 
 const get = (req, res) => {
   const title = "Log in to add your sightings";
+  const error = req.query.error;
   const content = /*html*/ `
       <div class="column">
         <h1 class="creepy">${title}</h1>
@@ -14,7 +18,8 @@ const get = (req, res) => {
             <label class="form-label" for="password">password</label>
             <input class = "form-input" type="password" id="password" name="password" required>
           </div>
-          <button class="mono-font white-font purple">Log in</button>
+          ${error ? `<p>${error}</p>` : `<p></p>`}
+          <button class="mono-font white-font purple rounded">Log in</button>
         </form>
       </div>
     `;
@@ -24,11 +29,27 @@ const get = (req, res) => {
 
 const post = (req, res) => {
   const { email, password } = req.body;
-  if (!email || !password) {
-    res.status(400).send("Bad input");
-  } else {
-    res.redirect("/");
+  const user = getUserByEmail(email);
+  if (!email || !password|| !user) {
+    res.redirect('/log-in?error=Login%20fail');
+    return;
   }
+  bcrypt.compare(password,user.password_hash)
+  .then((result) => {
+    if(!result) { 
+      return res.status(400).send("<h1>Login failed</h1>");
+    } else {
+    const sessionId = createSession(user.id);
+    res.cookie("sid", sessionId, {
+      signed: true,
+      maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
+      sameSite: "lax",
+      httpOnly: true,
+    });
+    res.redirect(`/`);
+  }
+  });
+  
 };
 
 module.exports = { get, post };

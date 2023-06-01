@@ -11,8 +11,8 @@ const get = (req, res) => {
     <header class="flex purple padding">
     <h1 class="creepy">${title}</h1>
     ${session ? 
-      /*html*/`<form class='end center' method='POST' action='/log-out'><button class='mono-font white-font purple'>Log-out</button></form>` :
-      /*html*/`<nav class="end center"><a href="/sign-up">Sign up</a> or <a href="/log-in">log in</a></nav>`}
+      /*html*/`<form class='end center mono-font' method='POST' action='/log-out'><button class='mono-font white-font purple'>Log-out</button></form>` :
+      /*html*/`<nav class="end center mono-font white-font"><a class ="mono-font white-font" href="/sign-up">Sign up</a> or <a class ="mono-font white-font" href="/log-in">log in</a></nav>`}
     </header>
     <div class="column center mono-font">
     <form class = "column center" method="POST">
@@ -20,7 +20,7 @@ const get = (req, res) => {
       <input class = "form-input" type="url" name="image_url">
       <label class="form-label" >Add sighting details</label>
       <input class = "form-input" type="text" name="details">
-      <button class ="mono-font" type="submit">Submit</button>
+      <button class ="mono-font rounded" type="submit">Submit</button>
     </form>
     </div>
     <div class="column center mono-font">
@@ -31,7 +31,7 @@ const get = (req, res) => {
           <input type="hidden" name="sighting_id" value="${sighting.id}">
           <button type="submit">X</button>
         </form>
-        <image src="${sighting.image_url}">
+        <img src="${sighting.image_url}">
         <p> ${sighting.details}</p>
         </div>
         `)
