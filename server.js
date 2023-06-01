@@ -7,6 +7,8 @@ const login = require('./src/routes/log-in');
 const logout = require('./src/routes/log-out.js');
 const signup = require('./src/routes/sign-up.js');
 const { getSession, removeSession } = require('./src/model/session.js');
+const deletePost = require('./src/routes/deletePost.js');
+
 
 const staticHandler = express.static('public');
 require('dotenv').config();
@@ -48,5 +50,7 @@ server.get('/log-in', login.get);
 server.post('/log-in', body, login.post);
 server.post('/', body, home.post);
 server.post('/log-out', body, logout.post);
+server.post("/delete", body, deletePost.post);
+
 
 module.exports = server;

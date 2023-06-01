@@ -2,6 +2,7 @@ const db = require("../database/db.js");
 
 const select_all_sightings = db.prepare(/*sql*/ `
     SELECT
+        sightings.id,
         email,
         details,
         image_url,
@@ -26,4 +27,12 @@ function createSighting(sighting) {
   return insert_sighting.get(sighting);
 }
 
-module.exports = { getAllSightings, createSighting };
+const remove_sighting = db.prepare(/*sql*/`
+  DELETE FROM sightings
+  WHERE id = ?
+`)
+function deleteSighting(id) {
+  remove_sighting.run(id);
+}
+
+module.exports = { getAllSightings, createSighting, deleteSighting };
