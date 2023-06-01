@@ -7,20 +7,20 @@ const get = (req, res) => {
   const content = /*html*/ `
     <header class="flex purple padding">
     <h1 class="creepy">${title}</h1>
-    <nav class="end center"><a href="/sign-up">Sign up</a> or <a href="/log-in">log in</a></nav>
+    <nav class="end center mono-font"><a href="/sign-up">Sign up</a> or <a href="/log-in">log in</a></nav>
     </header>
-    <div class="column">
-    <form class = "column" method="POST">
+    <div class="column center mono-font">
+    <form class = "column center" method="POST">
       <label class="form-label">Add image url</label>
       <input class = "form-input" type="url" name="imageUrl">
       <label class="form-label" >Add sighting details</label>
       <input class = "form-input" type="text" name="details">
-      <button type="submit">Submit</button>
+      <button class ="mono-font" type="submit">Submit</button>
     </form>
     </div>
-    <div>
+    <div class="column center mono-font">
       ${listAllSightings
-        .map((sighting) => `<p>${sighting.image_url} ${sighting.details}</p>`)
+        .map((sighting) => `<p class="align-left">${sighting.image_url} <br> ${sighting.details}</p>`)
         .join(' ')}
     </div>
   `
