@@ -3,12 +3,16 @@ const { createSighting, getAllSightings } = require('../model/sighting.js');
 
 
 const get = (req, res) => {
-  const title = 'Haunts of the High Street'
-  const listAllSightings = getAllSightings()
+  const session = req.session;
+
+  const title = 'Haunts of the High Street';
+  const listAllSightings = getAllSightings();
   const content = /*html*/ `
     <header class="flex purple padding">
     <h1 class="creepy">${title}</h1>
-    <nav class="end center mono-font white-font"><a class="white-font" href="/sign-up">Sign up</a> or <a class="white-font" href="/log-in">log in</a></nav>
+    ${session ? 
+      /*html*/`<form class='end center' method='POST' action='/log-out'><button class='mono-font white-font purple'>Log-out</button></form>` :
+      /*html*/`<nav class="end center"><a href="/sign-up">Sign up</a> or <a href="/log-in">log in</a></nav>`}
     </header>
     <div class="column center mono-font">
     <form class = "column center" method="POST">
