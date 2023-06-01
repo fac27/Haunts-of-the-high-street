@@ -1,16 +1,18 @@
+const cookieParser = require("cookie-parser");
 const express = require('express')
-const home = require('./src/routes/home.js')
-const login = require('./src/routes/log-in.js')
-const signup = require('./src/routes/sign-up.js')
+const server = express();
+
+const home = require('./src/routes/home.js');
+const login = require('./src/routes/log-in');
+const signup = require('./src/routes/sign-up.js');
+
 const staticHandler = express.static('public')
 require('dotenv').config();
+server.use(staticHandler);
 
-const body = express.urlencoded({ extended: true })
+const body = express.urlencoded({ extended: true });
 const cookies = cookieParser(process.env.COOKIE_SECRET);
 
-const server = express()
-
-server.use(staticHandler)
 
 server.use((req, res, next) => {
   const time = new Date().toLocaleTimeString('en-GB')
