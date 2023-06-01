@@ -1,7 +1,7 @@
-const { layout } = require('../templates/layout')
+const { layout } = require("../templates/layout");
 
 const get = (req, res) => {
-  const title = 'Log in to add your sightings'
+  const title = "Log in to add your sightings";
   const content = /*html*/ `
       <div class="column">
         <h1 class="creepy">${title}</h1>
@@ -17,19 +17,18 @@ const get = (req, res) => {
           <button class="Button">Log in</button>
         </form>
       </div>
-    `
-  const body = layout({ title, content })
-  res.send(body)
-}
+    `;
+  const body = layout({ title, content });
+  res.send(body);
+};
 
 const post = (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
     res.status(400).send("Bad input");
   } else {
-    res.redirect('/')
-}
-}
+    res.redirect("/");
+  }
+};
 
-
-module.exports = { get, post }
+module.exports = { get, post };
