@@ -11,8 +11,8 @@ const get = (req, res) => {
     <header class="flex purple padding">
     <h1 class="creepy">${title}</h1>
     ${session ? 
-      /*html*/`<form class='end center' method='POST' action='/log-out'><button class='mono-font white-font purple'>Log-out</button></form>` :
-      /*html*/`<nav class="end center"><a href="/sign-up">Sign up</a> or <a href="/log-in">log in</a></nav>`}
+      /*html*/`<form class='end center mono-font' method='POST' action='/log-out'><button class='mono-font white-font purple'>Log-out</button></form>` :
+      /*html*/`<nav class="end center mono-font white-font"><a class ="mono-font white-font" href="/sign-up">Sign up</a> or <a class ="mono-font white-font" href="/log-in">log in</a></nav>`}
     </header>
     <div class="column center mono-font">
     <form class = "column center" method="POST">
