@@ -5,7 +5,6 @@ const { createSighting, getAllSightings } = require('../model/sighting.js');
 const get = (req, res) => {
   const title = 'Haunts of the High Street'
   const listAllSightings = getAllSightings();
-  console.log(listAllSightings);
   const content = /*html*/ `
     <header class="flex purple padding">
     <h1 class="creepy">${title}</h1>
@@ -25,7 +24,7 @@ const get = (req, res) => {
         .map((sighting) => /*html*/`
         <div>
         <form method="POST" action="/delete">
-          <input type="hidden" name="sighting" value="${sighting}">
+          <input type="hidden" name="sighting" value="${sighting.id}">
           <button type="submit">X</button>
         </form>
         <image src="${sighting.image_url}">

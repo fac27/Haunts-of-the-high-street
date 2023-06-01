@@ -5,6 +5,7 @@ const server = express();
 const home = require('./src/routes/home.js');
 const login = require('./src/routes/log-in');
 const signup = require('./src/routes/sign-up.js');
+const deletePost = require('./src/routes/deletePost.js');
 
 
 const staticHandler = express.static('public')
@@ -30,9 +31,7 @@ server.post('/sign-up', body, signup.post);
 server.get('/log-in', login.get);
 server.post('/log-in', body, login.post);
 server.post("/", body, home.post);
-server.post("/delete", body, (req, res) => {
-  console.log(req.body);
-});
+server.post("/delete", body, deletePost.post);
 
 /* function sessions(req, res, next) {
   const sid = req.signedCookies.sid;
