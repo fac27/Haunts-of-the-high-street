@@ -1,4 +1,4 @@
-const { Layout } = require('../templates/layout')
+const { layout } = require('../templates/layout')
 
 const get = (req, res) => {
     const title = 'Sign-up to add your sightings'
@@ -18,7 +18,7 @@ const get = (req, res) => {
           </form>
         </div>
       `
-    const body = Layout({ title, content })
+    const body = layout({ title, content })
     res.send(body)
   }
 
