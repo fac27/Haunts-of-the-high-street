@@ -14,17 +14,19 @@ const get = (req, res) => {
       /*html*/`<form class='end center' method='POST' action='/log-out'><button class='mono-font white-font purple'>Log-out</button></form>` :
       /*html*/`<nav class="end center"><a href="/sign-up">Sign up</a> or <a href="/log-in">log in</a></nav>`}
     </header>
-    <div>
-    <form class = "column" method="POST">
-      <label>Add image url</label>
-      <input type="url" name="imageUrl">
-      <label>Add sighting details</label>
-      <input type="text" name="details">
-      <button type="submit">Submit</button>
+    <div class="column center mono-font">
+    <form class = "column center" method="POST">
+      <label class="form-label">Add image url</label>
+      <input class = "form-input" type="url" name="image_url">
+      <label class="form-label" >Add sighting details</label>
+      <input class = "form-input" type="text" name="details">
+      <button class ="mono-font" type="submit">Submit</button>
     </form>
     </div>
-    <div>
-      ${listAllSightings.map((sighting) => `<p>${sighting.image_url} ${sighting.details}</p>`).join(' ')}
+    <div class="column center mono-font">
+      ${listAllSightings
+        .map((sighting) => `<p class="align-left">${sighting.image_url} <br> ${sighting.details}</p>`)
+        .join(' ')}
     </div>
   `
   const body = layout({ title, content })
@@ -32,24 +34,16 @@ const get = (req, res) => {
 }
 
 const post = (req, res) => {
-  const { imageUrl, details } = req.body;
-    if (!imageUrl || !details) {
+  console.log(req.body);
+  const { image_url, details } = req.body;
+    if (!image_url || !details) {
       res.status(400).send("Bad input");
     } else {
       ////////////////// temporary user_id ////////////////////////////
-      const userId = 1;
-      console.log(userId, imageUrl, details);
-      console.log(process.env.DB_FILE)
-      createSighting(userId, imageUrl, details);
+      const sighting = {user_id: 1, details, image_url}
+      createSighting(sighting);
       res.redirect('/');
 }
 }
 
-
-
-
 module.exports = { get, post }
-
-
-
-
