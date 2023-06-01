@@ -15,10 +15,11 @@ server.use((req, res, next) => {
   next()
 })
 
-server.get('/', home.get)
-server.get('/sign-up', signup.get)
-server.post('/sign-up', body, signup.post)
-server.get('/log-in', login.get)
+server.get('/', home.get);
+server.get('/sign-up', signup.get);
+server.post('/sign-up', body, signup.post);
+server.get('/log-in', login.get);
+server.post('/log-in', body, login.post);
 server.post("/", body, home.post);
 
 module.exports = server
