@@ -1,4 +1,8 @@
-const { layout } = require('../templates/layout')
+const bcrypt = require('bcryptjs');
+const { layout } = require('../templates/layout');
+const { createSession } = require('../model/session');
+const { createUser } = require('../model/user');
+
 
 const get = (req, res) => {
     const title = 'Sign-up to add your sightings'
@@ -27,8 +31,20 @@ const get = (req, res) => {
     if (!email || !password) {
       res.status(400).send("Bad input");
     } else {
-      res.redirect('/')
+      bcrypt.hash(password, 12).then ((hash) => {
+        const user = createUser(email, hash);
+        const sessionId = createSession(user.id);
+
+        res.cookie("sid", sessionId, {
+          signed: true,
+          maxAge: 7 * 24 * 60 * 60 * 1000,
+          sameSite: 'lax',
+          httpOnly: true,
+        });
+        res.redirect('/');
+      });
+      
   }
 }
 
-  module.exports = { get, post }
+module.exports = { get, post }
