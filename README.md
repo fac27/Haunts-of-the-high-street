@@ -11,6 +11,16 @@ Our guiding user stories:
 ## Approach 
 Our geneeral approach to this project was to move slow to move fast. We delayed deploying until our second day of working together so that we had a full first day working remotely to tackle the things that we knew well leaving the tasks that we weren't as comfortable with for when we would be working together in person. 
 
+## Facilitation & Collaboration
+📣 standups
+
+🎯 project board
+
+⏱️ estimations
+
+🏃‍♂️ sprinting 
+
+
 ## Instillation
 
 Clone the Repo 
@@ -46,3 +56,16 @@ We approached CSS for reusablity. After a lengthy discussion re. BEM with our ro
 
 ## database design
 ![Haunts of the High Street database diagram](https://github.com/fac27/Haunts-of-the-high-street/assets/32879360/b4dd1718-601f-48f0-aac2-93138bd3e5d9)
+
+
+## Testing
+There are x number of tests - to run all tests run the following: 
+```
+npm test
+```
+
+## Deployment 
+
+- setting up
+- volumes
+- continuous deployemnt via github actions
