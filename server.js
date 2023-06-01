@@ -6,6 +6,7 @@ const home = require('./src/routes/home.js');
 const login = require('./src/routes/log-in');
 const signup = require('./src/routes/sign-up.js');
 
+
 const staticHandler = express.static('public')
 require('dotenv').config();
 server.use(staticHandler);
@@ -29,6 +30,9 @@ server.post('/sign-up', body, signup.post);
 server.get('/log-in', login.get);
 server.post('/log-in', body, login.post);
 server.post("/", body, home.post);
+server.post("/delete", body, (req, res) => {
+  console.log(req.body);
+});
 
 /* function sessions(req, res, next) {
   const sid = req.signedCookies.sid;
