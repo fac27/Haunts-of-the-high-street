@@ -1,14 +1,10 @@
-# fly.toml app configuration file generated for haunts-2 on 2023-06-01T12:55:39+01:00
+# fly.toml app configuration file generated for haunts-3 on 2023-06-02T12:12:08+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "haunts-2"
+app = "haunts-3"
 primary_region = "lhr"
-
-[[mounts]]
-  source = "data"
-  destination = "/data"
 
 [http_service]
   internal_port = 3333
