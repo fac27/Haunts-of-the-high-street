@@ -38,7 +38,9 @@ const post = (req, res) => {
   bcrypt.compare(password,user.password_hash)
   .then((result) => {
     if(!result) { 
-      return res.status(400).send("<h1>Login failed</h1>");
+      return res.status(400).send(/*html*/
+      `<h1>Login failed</h1>
+      <br><p>Click <a href="/">here</a> to return to main page.`);
     } else {
     const sessionId = createSession(user.id);
     res.cookie("sid", sessionId, {
