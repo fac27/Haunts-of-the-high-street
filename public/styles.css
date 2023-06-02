@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Inconsolata:wght@200;300;400&display=swap');
+body {
+  margin: 0;
+}
+img {
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
+}
 .creepy {
   font-style: normal;
   font-weight: 400;
@@ -9,11 +18,11 @@
 .mono-font {
   font-family: 'Inconsolata', monospace;
 }
-.white-font{
+.white-font {
   color: antiquewhite;
   text-decoration: none;
 }
-a:visited{
+a:visited {
   color: orange;
 }
 .purple {
@@ -28,6 +37,9 @@ a:visited{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.center > * {
+  margin-top: 0.5rem;
 }
 .end {
   display: flex;
@@ -68,7 +80,7 @@ a:visited{
   font-family: inherit;
 }
 
-.rounded{
+.rounded {
   padding: 0.5rem;
   border-radius: 10%;
   border-color: none;
