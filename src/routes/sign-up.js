@@ -6,7 +6,9 @@ const { createUser, getUserByEmail } = require('../model/user');
 
 const get = (req, res) => {
     const title = 'Sign-up to add your sightings'
-    const error = req.query.error;
+    const errorQueryString = req.query.error;
+    const emailQueryString = req.query.email?.replace('@','%40');
+
     const content = /*html*/ `
         <div class="column">
           <h1 class="center creepy">${title}</h1>
@@ -15,7 +17,7 @@ const get = (req, res) => {
             <div class="">
               <label class="form-label" for="email">email</label>
               <input class = "form-input" type="email" id="email" name="email" required>
-              ${error ? `<p>${error}</p>`:'<p></p>'}
+              ${errorQueryString ? `<p>${errorQueryString}&nbsp;Click <a href="/log-in?email=${emailQueryString}">here</a> to log in</p>`:'<p></p>'}
             </div>
             <div class="">
               <label class="form-label" for="password">password</label>
@@ -36,7 +38,7 @@ const get = (req, res) => {
       res.status(400).send("Bad input");
     } else {
       if(userEmail){
-      res.redirect('/sign-up?error=User%20already%20exists');
+      res.redirect(`/sign-up?error=User%20already%20exists&email=${email.replace('@','%40')}`);
       return;
       }
       bcrypt.hash(password, 12).then ((hash) => {

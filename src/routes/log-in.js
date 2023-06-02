@@ -5,20 +5,21 @@ const {createSession} = require('../model/session')
 
 const get = (req, res) => {
   const title = "Log in to add your sightings";
-  const error = req.query.error;
+  const errorQueryString = req.query.error;
+  const emailQueryString = req.query.email;
   const content = /*html*/ `
       <div class="column">
         <h1 class="center creepy">${title}</h1>
         <form method="POST" class="column center mono-font" action="/log-in">
           <div class="" >
             <label class="form-label" for="email">email</label>
-            <input class = "form-input" type="email" id="email" name="email" required>
+            <input class = "form-input" type="email" id="email" name="email" ${emailQueryString ? `value="${emailQueryString}"` : ''} required>
           </div>
           <div class="">
             <label class="form-label" for="password">password</label>
             <input class = "form-input" type="password" id="password" name="password" required>
           </div>
-          ${error ? `<p>${error}</p>` : `<p></p>`}
+          ${errorQueryString ? `<p>${errorQueryString}</p>` : `<p></p>`}
           <button class="mono-font white-font purple rounded">Log in</button>
         </form>
       </div>
