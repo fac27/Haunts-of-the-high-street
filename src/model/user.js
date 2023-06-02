@@ -1,4 +1,4 @@
-const db = require("../database/db.js");
+const db = require('../database/db.js');
 
 const insert_user = db.prepare(/*sql*/ `
   INSERT INTO users (email, password_hash)
@@ -7,7 +7,7 @@ const insert_user = db.prepare(/*sql*/ `
 `);
 
 function createUser(user) {
-  return insert_user.get(user);
+    return insert_user.get(user);
 }
 
 const select_user_by_email = db.prepare(/*sql*/ `
@@ -15,7 +15,7 @@ const select_user_by_email = db.prepare(/*sql*/ `
 `);
 
 function getUserByEmail(email) {
-  return select_user_by_email.get(email);
+    return select_user_by_email.get(email);
 }
 
 const select_user_by_id = db.prepare(/*sql*/ `
@@ -23,7 +23,7 @@ const select_user_by_id = db.prepare(/*sql*/ `
 `);
 
 function getUserById(id) {
-  return select_user_by_id.get(id);
+    return select_user_by_id.get(id);
 }
 
 module.exports = { createUser, getUserByEmail, getUserById };

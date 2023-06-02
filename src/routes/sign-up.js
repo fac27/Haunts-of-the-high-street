@@ -3,7 +3,6 @@ const { layout } = require('../templates/layout');
 const { createSession } = require('../model/session');
 const { createUser, getUserByEmail } = require('../model/user');
 
-
 const get = (req, res) => {
     const title = 'Sign-up to add your sightings'
     const errorQueryString = req.query.error;
@@ -26,16 +25,16 @@ const get = (req, res) => {
             <button class="mono-font white-font purple rounded">sign-up</button>
           </form>
         </div>
-      `
-    const body = layout({ title, content })
-    res.send(body)
-  }
+      `;
+    const body = layout({ title, content });
+    res.send(body);
+};
 
-  const post = (req, res) => {
+const post = (req, res) => {
     const { email, password } = req.body;
-    const userEmail = getUserByEmail(email)
+    const userEmail = getUserByEmail(email);
     if (!email || !password) {
-      res.status(400).send("Bad input");
+        res.status(400).send('Bad input');
     } else {
       if(userEmail){
       res.redirect(`/sign-up?error=User%20already%20exists&email=${email.replace('@','%40')}`);
@@ -46,16 +45,15 @@ const get = (req, res) => {
         const user = createUser(userObject);
         const sessionId = createSession(user.id);
 
-        res.cookie("sid", sessionId, {
-          signed: true,
-          maxAge: 7 * 24 * 60 * 60 * 1000,
-          sameSite: 'lax',
-          httpOnly: true,
+            res.cookie('sid', sessionId, {
+                signed: true,
+                maxAge: 7 * 24 * 60 * 60 * 1000,
+                sameSite: 'lax',
+                httpOnly: true,
+            });
+            res.redirect('/');
         });
-        res.redirect('/');
-      });
-      
-  }
-}
+    }
+};
 
-module.exports = { get, post }
+module.exports = { get, post };

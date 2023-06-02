@@ -1,7 +1,7 @@
-const bcrypt = require("bcryptjs");
+const bcrypt = require('bcryptjs');
 const { getUserByEmail } = require('../model/user');
 const { layout } = require('../templates/layout');
-const {createSession} = require('../model/session')
+const { createSession } = require('../model/session');
 
 const get = (req, res) => {
   const title = "Log in to add your sightings";
@@ -24,8 +24,8 @@ const get = (req, res) => {
         </form>
       </div>
     `;
-  const body = layout({ title, content });
-  res.send(body);
+    const body = layout({ title, content });
+    res.send(body);
 };
 
 const post = (req, res) => {
@@ -43,10 +43,10 @@ const post = (req, res) => {
       <br><p>Click <a href="/">here</a> to return to main page.`);
     } else {
     const sessionId = createSession(user.id);
-    res.cookie("sid", sessionId, {
+    res.cookie('sid', sessionId, {
       signed: true,
       maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
-      sameSite: "lax",
+      sameSite: 'lax',
       httpOnly: true,
     });
     res.redirect(`/`);

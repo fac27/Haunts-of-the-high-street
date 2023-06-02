@@ -1,5 +1,5 @@
-const crypto = require("node:crypto");
-const db = require("../database/db");
+const crypto = require('node:crypto');
+const db = require('../database/db');
 
 const insert_session = db.prepare(/*sql*/ `
   INSERT INTO sessions (id, user_id, expires_at)
@@ -7,9 +7,9 @@ const insert_session = db.prepare(/*sql*/ `
 `);
 
 function createSession(user_id) {
-  const id = crypto.randomBytes(18).toString("base64");
-  insert_session.run({ id, user_id });
-  return id;
+    const id = crypto.randomBytes(18).toString('base64');
+    insert_session.run({ id, user_id });
+    return id;
 }
 
 const select_session = db.prepare(/*sql*/ `
@@ -18,7 +18,7 @@ const select_session = db.prepare(/*sql*/ `
 `);
 
 function getSession(sid) {
-  return select_session.get(sid);
+    return select_session.get(sid);
 }
 
 const delete_session = db.prepare(/*sql*/ `
@@ -26,7 +26,7 @@ const delete_session = db.prepare(/*sql*/ `
 `);
 
 function removeSession(sid) {
-  return delete_session.run(sid);
+    return delete_session.run(sid);
 }
 
 module.exports = { createSession, getSession, removeSession };

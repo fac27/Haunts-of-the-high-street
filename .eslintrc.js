@@ -1,15 +1,15 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es2021": true
+    env: {
+        browser: true,
+        commonjs: true,
+        es2021: true,
     },
-    "extends":[ "eslint:recommended", "kentcdodds"],
-    "overrides": [
-    ],
-    "parserOptions": {
-        "ecmaVersion": "latest"
+    extends: ['eslint:recommended', 'kentcdodds'],
+    overrides: [],
+    parserOptions: {
+        ecmaVersion: 'latest',
     },
-    "rules": {
-    }
-}
+    rules: {
+        'no-console': 'error',
+    },
+};
