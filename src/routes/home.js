@@ -35,10 +35,11 @@ const get = (req, res) => {
               (sighting) => /*html*/ `
         <div class = "red flex center">
         <div class="align-left">
-        <form method="POST" action="/delete">
+        ${session && (session.user_id == sighting.user_id) ? `<form method="POST" action="/delete">
           <input type="hidden" name="sighting_id" value="${sighting.id}">
+          <input type="hidden" name="user_id" value="${sighting.user_id}">
           <button class="rounded" type="submit">X</button>
-        </form>
+        </form>` : ""}
         <img src="${sanitise(sighting.image_url)}">
         <p> ${sanitise(sighting.details)}</p>
         </div>

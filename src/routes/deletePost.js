@@ -7,7 +7,7 @@ const post = (req, res) => {
         return;
     }
     const sighting_id = req.body.sighting_id;
-    const isUser = sighting_id == session.user_id;
+    const isUser = req.body.user_id == session.user_id;
     // eslint-disable-next-line no-negated-condition
     if (!isUser) {
         res.status(401).send(`<h1>That's not your post!</h1>`);

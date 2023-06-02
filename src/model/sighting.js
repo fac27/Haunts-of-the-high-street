@@ -2,6 +2,7 @@ const db = require('../database/db.js');
 
 const select_all_sightings = db.prepare(/*sql*/ `
     SELECT
+        user_id,
         sightings.id,
         email,
         details,
