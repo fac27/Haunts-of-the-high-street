@@ -1,5 +1,5 @@
 const layout = ({ title, content }) => {
-  return /*html*/ `
+    return /*html*/ `
       <!doctype html>
       <html lang="en">
         <head>
@@ -13,7 +13,7 @@ const layout = ({ title, content }) => {
             </main>
         </body>
       </html>
-    `
-}
+    `;
+};
 
-module.exports = { layout }
+module.exports = { layout };
