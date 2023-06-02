@@ -27,7 +27,7 @@ const get = (req, res) => {
     <div class="column center mono-font">` : `<p class ="column center mono-font"> Local Sightings</p>`}
       ${listAllSightings
         .map((sighting) => /*html*/`
-        <div class = "center">
+        <div class = "red center">
         <div class="align-left">
         <form method="POST" action="/delete">
           <input type="hidden" name="sighting_id" value="${sighting.id}">
