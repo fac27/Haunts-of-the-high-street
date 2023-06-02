@@ -1,4 +1,4 @@
-const db = require("../database/db.js");
+const db = require('../database/db.js');
 
 const select_all_sightings = db.prepare(/*sql*/ `
     SELECT
@@ -14,7 +14,7 @@ const select_all_sightings = db.prepare(/*sql*/ `
 `);
 
 function getAllSightings() {
-  return select_all_sightings.all();
+    return select_all_sightings.all();
 }
 
 const insert_sighting = db.prepare(/*sql*/ `
@@ -24,15 +24,15 @@ const insert_sighting = db.prepare(/*sql*/ `
 `);
 
 function createSighting(sighting) {
-  return insert_sighting.get(sighting);
+    return insert_sighting.get(sighting);
 }
 
-const remove_sighting = db.prepare(/*sql*/`
+const remove_sighting = db.prepare(/*sql*/ `
   DELETE FROM sightings
   WHERE id = ?
-`)
+`);
 function deleteSighting(id) {
-  remove_sighting.run(id);
+    remove_sighting.run(id);
 }
 
 module.exports = { getAllSightings, createSighting, deleteSighting };

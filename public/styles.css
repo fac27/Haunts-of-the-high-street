@@ -1,76 +1,76 @@
 @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Inconsolata:wght@200;300;400&display=swap');
 .creepy {
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  font-family: 'Creepster', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    font-family: 'Creepster', cursive;
 }
 .mono-font {
-  font-family: 'Inconsolata', monospace;
+    font-family: 'Inconsolata', monospace;
 }
-.white-font{
-  color: antiquewhite;
-  text-decoration: none;
+.white-font {
+    color: antiquewhite;
+    text-decoration: none;
 }
-a:visited{
-  color: orange;
+a:visited {
+    color: orange;
 }
 .purple {
-  background-color: blueviolet;
+    background-color: blueviolet;
 }
 .flex {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .end {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-left: auto;
 }
 .column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .column > * {
-  margin-top: 0.25rem;
+    margin-top: 0.25rem;
 }
 .align-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 .padding {
-  padding: 1rem;
+    padding: 1rem;
 }
 
 .form-label {
-  display: inline-block;
-  font-weight: 700;
-  color: gray;
+    display: inline-block;
+    font-weight: 700;
+    color: gray;
 }
 
 .form-input {
-  display: block;
-  width: 100%;
-  border: 1px solid darkgray;
-  border-radius: 0.25;
-  padding: 0.75rem;
-  color: inherit;
-  font-family: inherit;
+    display: block;
+    width: 100%;
+    border: 1px solid darkgray;
+    border-radius: 0.25;
+    padding: 0.75rem;
+    color: inherit;
+    font-family: inherit;
 }
 
-.rounded{
-  padding: 0.5rem;
-  border-radius: 10%;
-  border-color: none;
-  border-width: 0px;
+.rounded {
+    padding: 0.5rem;
+    border-radius: 10%;
+    border-color: none;
+    border-width: 0px;
 }
