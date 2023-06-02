@@ -24,20 +24,19 @@ server.use((req, res, next) => {
 });
 
 const sessions = (req, res, next) => {
-  const sid = req.signedCookies.sid;
-  const session = getSession(sid);
-  if (session) {
-    const expiry = new Date(session.expires_at);
-    const today = new Date();
-    if (expiry < today)
-    {
-      removeSession(sid);
-      res.clearCookie('sid');
-    } else {
-      req.session = session;
-    }
+  if (!req.signedCookies?.sid) return next();
+  const session = getSession(req.signedCookies.sid);
+  const isExpired = new Date() > new Date(session.expires_at) ;
+    
+  if (isExpired) {
+    const sid = req.signedCookies.sid;
+    removeSession(sid);
+    res.clearCookie('sid');
+  } else {
+    req.session = session;
   }
-  next();
+    
+  return next();
 };
 
 server.use(cookies);

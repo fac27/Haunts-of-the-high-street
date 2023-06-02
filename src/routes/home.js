@@ -1,5 +1,6 @@
 const { layout } = require('../templates/layout');
 const { createSighting, getAllSightings } = require('../model/sighting.js');
+const { sanitise } = require('../model/sanitise')
 
 
 const get = (req, res) => {
@@ -14,7 +15,7 @@ const get = (req, res) => {
       /*html*/`<form class='end center mono-font' method='POST' action='/log-out'><button class='mono-font white-font purple'>Log-out</button></form>` :
       /*html*/`<nav class="end center mono-font white-font"><a class ="mono-font white-font" href="/sign-up">Sign up</a> or <a class ="mono-font white-font" href="/log-in">log in</a></nav>`}
     </header>
-    <div class="column center mono-font">
+    ${session ? `<div class="column center mono-font">
     <form class = "column center" method="POST">
       <label class="form-label">Add image url</label>
       <input class = "form-input" type="url" name="image_url">
@@ -23,16 +24,18 @@ const get = (req, res) => {
       <button class ="mono-font rounded" type="submit">Submit</button>
     </form>
     </div>
-    <div class="column center mono-font">
+    <div class="column center mono-font">` : `<p class ="column center mono-font"> Local Sightings</p>`}
       ${listAllSightings
         .map((sighting) => /*html*/`
-        <div>
+        <div class = "center">
+        <div class="align-left">
         <form method="POST" action="/delete">
           <input type="hidden" name="sighting_id" value="${sighting.id}">
-          <button type="submit">X</button>
+          <button class="rounded" type="submit">X</button>
         </form>
-        <img src="${sighting.image_url}">
-        <p> ${sighting.details}</p>
+        <img src="${sanitise(sighting.image_url)}">
+        <p> ${sanitise(sighting.details)}</p>
+        </div>
         </div>
         `)
         .join(' ')}

@@ -9,7 +9,7 @@ const get = (req, res) => {
     const error = req.query.error;
     const content = /*html*/ `
         <div class="column">
-          <h1 class="creepy">${title}</h1>
+          <h1 class="center creepy">${title}</h1>
           
           <form method="POST" class="column center mono-font" action="/sign-up">
             <div class="">
