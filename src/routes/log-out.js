@@ -1,15 +1,15 @@
-const { removeSession } = require("../model/session");
+const { removeSession } = require('../model/session');
 
 const post = (req, res) => {
-  const session = req.session;
+    const session = req.session;
 
-  if (session) {
-    const userId = session.userId;
-    removeSession(userId);
-    res.clearCookie("sid");
-  }
+    if (session) {
+        const userId = session.userId;
+        removeSession(userId);
+        res.clearCookie('sid');
+    }
 
-  res.redirect("/");
+    res.redirect('/');
 };
 
-module.exports = {post};
+module.exports = { post };
