@@ -29,13 +29,9 @@ const sessions = (req, res, next) => {
   const session = getSession(req.signedCookies.sid);
   
   if (!session) {
-    // Handle the case when the session is not found or invalid
-    // For example, you can redirect to a login page or show an error message
     return next();
   }
-  
   const isExpired = new Date() > new Date(session.expires_at);
-    
   if (isExpired) {
     const sid = req.signedCookies.sid;
     removeSession(sid);

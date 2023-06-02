@@ -86,10 +86,3 @@ a:visited {
   border-color: none;
   border-width: 0px;
 }
-
-.red {
-  border-style: solid;
-  border-color: red;
-  border-width: 2px;
-  width: 90%;
-}
